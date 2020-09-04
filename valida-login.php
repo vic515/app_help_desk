@@ -1,4 +1,9 @@
 <?php
+
+    session_start();
+    $_SESSION['x'] = 'Oi, sou um valor de sessão';
+    print_r($_SESSION);
+
     $usuarios_app = array(
         array('email' => 'adm@teste.com.br', 'senha' => '123456'),
         array('email' => 'user@teste.com.br', 'senha' => 'abcd'),
