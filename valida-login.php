@@ -14,7 +14,10 @@
     echo '</pre>';
     if(in_array($_POST,$usuarios_app)) {
         echo "<hr><hr> Usuário autenticado com sucesso";
+        header('Location:home.php');
+        $_SESSION['autenticado'] = 'SIM';
     } else {
         header('Location: index.php?login=erro');
+        $_SESSION['autenticado'] = 'NAO';
     }
  ?>
