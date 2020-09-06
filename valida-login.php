@@ -5,9 +5,15 @@
     print_r($_SESSION);
 
     $usuarios_app = array(
-        array('email' => 'adm@teste.com.br', 'senha' => '123456'),
-        array('email' => 'user@teste.com.br', 'senha' => 'abcd'),
-        array('email' => 'lemosvict@gmail.com', 'senha' => 'papeldecarta')
+        array(
+        'email' => 'adm@teste.com.br',
+        'senha' => '123456'),
+        array(
+        'email' => 'user@teste.com.br',
+        'senha' => 'abcd'),
+        array(
+        'email' => 'lemosvict@gmail.com',
+        'senha' => 'papeldecarta')
     );
     echo '<pre>';
     print_r($usuarios_app);

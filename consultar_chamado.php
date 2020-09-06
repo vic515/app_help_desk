@@ -1,4 +1,15 @@
 <?php require_once 'validador_acesso.php'; ?>
+<?php
+
+  $arquivo = fopen('arquivo.hd', 'r');
+  $calls = array();
+  while(!feof($arquivo)) {
+    $registro = fgets($arquivo);
+    $calls[] = $registro;
+  }
+  fclose($arquivo);
+
+?>
 
 <html>
   <head>
@@ -23,6 +34,7 @@
         <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
+      <a class='btn btn-info text-light align-self-end mt-auto mb-auto' href='logoff.php'>Sair</a>
     </nav>
 
     <div class="container">    
@@ -35,28 +47,31 @@
             </div>
             
             <div class="card-body">
+
+            <?php foreach($calls as $key => $chamado){
+              
+            ?>
+
+            <?php $callData = explode('#', $chamado);
+            if(count($callData) < 3) {
+              continue;
+            }
+?>
               
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+                  <h5 class="card-title"><?= $callData[0]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$callData[1]?></h6>
+                  <p class="card-text"><?=$callData[2]?></p>
 
                 </div>
               </div>
+              <?}?>
 
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
 
               <div class="row mt-5">
                 <div class="col-6">
-                  <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
+                  <a class="btn btn-lg btn-warning btn-block" href='home.php'>Voltar</a>
                 </div>
               </div>
             </div>
