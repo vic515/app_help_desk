@@ -14,6 +14,7 @@
         margin: 0 auto;
       }
     </style>
+    <script src="script.js"></script>
   </head>
 
   <body>
@@ -59,7 +60,9 @@
 
 
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
+                
               </form>
+              <button class='btn btn-outline-success btn-lg w-100' onclick='novoCadastro()'>Cadastrar</button>
             </div>
           </div>
         </div>

@@ -53,6 +53,18 @@
             ?>
 
             <?php $callData = explode('#', $chamado);
+            if($_SESSION['perfil_id'] == 2) {
+
+              if($_SESSION['id'] != $callData[0]) {
+                // echo '<pre>';
+                // print_r($_SESSION);
+                // print_r($chamado);
+                // echo '</pre>';
+                continue;
+              }
+            }
+            
+
             if(count($callData) < 3) {
               continue;
             }
@@ -60,9 +72,9 @@
               
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $callData[0]?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?=$callData[1]?></h6>
-                  <p class="card-text"><?=$callData[2]?></p>
+                  <h5 class="card-title"><?= $callData[1]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$callData[2]?></h6>
+                  <p class="card-text"><?=$callData[3]?></p>
 
                 </div>
               </div>
